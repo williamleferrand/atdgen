@@ -549,9 +549,9 @@ let rec make_writer p (x : oj_mapping) : Ag_indent.t list =
 
     | `Nullable (loc, x, `Nullable, `Nullable) ->
         [
-          `Line "Ag_oj_run.write_nullable (";
+          `Line "fun arg -> Ag_oj_run.write_nullable (";
           `Block (make_writer p x);
-          `Line ")";
+          `Line ") arg";
         ]
 
     | `Wrap (loc, x, `Wrap o, `Wrap) ->
