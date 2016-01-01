@@ -469,7 +469,7 @@ let rec make_writer p (x : oj_mapping) : Ag_indent.t list =
     | `String _
     | `Name _
     | `External _
-    | `Tvar _ -> [ `Line (get_writer_name p x) ]
+    | `Tvar _ -> [ `Line ("fun ob -> " ^ get_writer_name p x ^ " ob") ]
 
     | `Sum _ -> make_sum_writer p x make_variant_writer
 
